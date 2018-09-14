@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import {Link} from 'react-router-dom'; 
 
 class Register extends React.Component {
   constructor() {
@@ -37,7 +38,8 @@ class Register extends React.Component {
   render() {
     return (
       <div className="register">
-        <form onSubmit={this.onSubmitHandler} className="sign-up-form">
+      <h1>Register</h1>
+        <form onSubmit={this.onSubmitHandler} className="sign-up-form"> 
           <input
             onChange={this.onInputChangeHandler}
             type="text"
@@ -54,6 +56,7 @@ class Register extends React.Component {
           />
           <button type="submit">Sign up!</button>
         </form>
+        <p> Already a member? <Link to = "/login">Login Here</Link> </p>
       </div>
     );
   }

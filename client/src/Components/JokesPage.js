@@ -30,7 +30,7 @@ class JokesPage extends React.Component {
 
   signOutHandler = () => {
     localStorage.removeItem("jwt");
-    this.props.history.push("/login");
+    this.props.history.push("/");
   };
 
   render() {

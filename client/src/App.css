@@ -1,6 +1,7 @@
 body {
   margin: 0; 
   padding: 0; 
+  background-color: #741C2B; 
 }
 
 .home {
@@ -45,4 +46,18 @@ body {
 .links a:hover {
   background-color: #D23A2F; 
   color: white; 
+}
+
+
+.register, .login{
+  text-align: center; 
+  width: 50%; 
+  margin: 0 auto; 
+  background-color: white; 
+  height: 40vh; 
+  display: flex; 
+  justify-content: center; 
+  flex-direction: column; 
+  margin-top: 50px; 
+  border-radius: 20px; 
 }

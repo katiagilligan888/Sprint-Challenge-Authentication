@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import {Link} from 'react-router-dom'; 
 
 class Login extends React.Component {
   constructor() {
@@ -37,6 +38,7 @@ class Login extends React.Component {
   render() {
     return (
       <div className="login">
+        <h1>Login</h1>
         <form onSubmit={this.onSubmitHandler} className="login-form">
           <input
             onChange={this.onInputChangeHandler}
@@ -53,6 +55,7 @@ class Login extends React.Component {
             value={this.state.password}
           />
           <button type="submit">Login</button>
+          <p>Don't have an account yet? Sign up <Link to ="/register">here</Link></p>
         </form>
       </div>
     );
