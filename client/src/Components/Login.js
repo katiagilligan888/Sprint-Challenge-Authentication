@@ -27,7 +27,7 @@ class Login extends React.Component {
         });
         const token = response.data.token;
         localStorage.setItem("jwt", token);
-        //    this.props.history.push('/jokes');
+        this.props.history.push("/jokes");
       })
       .catch(err => {
         console.log(err);
@@ -59,4 +59,4 @@ class Login extends React.Component {
   }
 }
 
-export default Register;
+export default Login;
