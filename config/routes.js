@@ -16,21 +16,15 @@ module.exports = server => {
   server.get('/api/jokes', authenticate, getJokes);
 };
 
-
-
 function generateToken(username){
-  
   const secret = key.jwtKey;
-  
   const payload = {
     username, 
   }
-  
   const options = {
     expiresIn: '5hr', 
     jwtid: '340952349066'
   }
-
   return jwt.sign(payload, secret, options); 
 }
 
@@ -66,7 +60,20 @@ function register(req, res) {
 
 
 function login(req, res) {
-  // implement user login
+  const creds = req.body; 
+  db('users')
+    .where({username: creds.username})
+    .first()
+    .then(user => {
+    if(user && bcrypt.compareSync(creds.password, user.password)){
+      const token = generateToken(creds.username); 
+      res.status(201).json({message: "Welcome! Login was successful", token});
+    }else {
+      res.status(401).json({message: "Please try again. Credentials were wrong."})
+    }
+  }).catch(err => {
+    res.status(500).json({error: "There was an error posting and retrieving data from the database"})
+  })
 }
 
 function getJokes(req, res) {
